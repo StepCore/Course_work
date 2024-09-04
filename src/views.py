@@ -1,5 +1,6 @@
 import datetime
 import pandas as pd
+from user_settings_json import add_to_list
 
 
 def hello(current_time):
@@ -49,6 +50,7 @@ def generate_json(current_date):
     filtered_transactions[0]['cards'] = cards
     top_transactions.sort(key=lambda x: x['amount'])
     filtered_transactions[0]['top_transactions'] = top_transactions
+    filtered_transactions[0]['currency_rates'] = add_to_list()
     print(current_transactions)
     print()
     return filtered_transactions
