@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65da39d2-4a82-4619-ac7b-65fb0fbbd7a0" name="Changes" comment="create generate json">
+    <list default="true" id="65da39d2-4a82-4619-ac7b-65fb0fbbd7a0" name="Changes" comment="create converter currency and settings">
+      <change afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reports.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/views.py" afterDir="false" />
@@ -47,6 +50,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.services.executor&quot;: &quot;Run&quot;,
     &quot;Python.user_settings_json.executor&quot;: &quot;Run&quot;,
     &quot;Python.utils.executor&quot;: &quot;Run&quot;,
     &quot;Python.views.executor&quot;: &quot;Run&quot;,
@@ -103,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725094503454</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="create converter currency and settings">
+      <option name="closed" value="true" />
+      <created>1725455995960</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725455995960</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -111,6 +123,7 @@
     <MESSAGE value="test" />
     <MESSAGE value="test push" />
     <MESSAGE value="create generate json" />
-    <option name="LAST_COMMIT_MESSAGE" value="create generate json" />
+    <MESSAGE value="create converter currency and settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="create converter currency and settings" />
   </component>
 </project>

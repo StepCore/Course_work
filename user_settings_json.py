@@ -3,6 +3,7 @@ import requests
 
 settings = {"user_currencies": ["USD", "EUR"], "user_stocks": ["AAPL", "AMZN", "GOOGL", "MSFT", "TSLA"]}
 currency_list = []
+currency_stock = []
 
 
 def get_current_price(currency):
@@ -32,3 +33,20 @@ def add_to_list():
 
 
 # print(add_to_list())
+
+def get_current_stock():
+    url = f"https://financialmodelingprep.com/api/v3/stock/list?apikey=PltnhzgjML0noZote0Z2nK8TZYU9t3cw"
+    payload = {}
+
+    response = requests.request("GET", url, data=payload)
+
+    result = response.json()
+
+    for stock in result:
+        for my_stock in settings["user_stocks"]:
+            if stock["symbol"] == my_stock:
+                currency_stock.append({"stock": stock["symbol"], "price": stock["price"]})
+    return currency_stock
+
+
+# print(get_current_stock(settings))

@@ -1,5 +1,4 @@
 import pandas as pd
-from views import hello
 
 
 def get_json_excel():
