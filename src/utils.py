@@ -1,10 +1,9 @@
 import pandas as pd
 
 
-def get_json_excel():
-    get_excel_file = pd.read_excel('../data/operations.xlsx')
-    dict_exl = get_excel_file.to_dict(orient="records")
-    return dict_exl
+def get_dataframe_excel():
+    get_excel_file = pd.read_excel("../data/operations.xlsx")
+    return get_excel_file
 
 
 # print(get_json_excel())
