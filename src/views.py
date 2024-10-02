@@ -1,7 +1,7 @@
 import datetime
 
 from user_settings_json import add_to_list, get_current_stock
-from utils import get_excel
+from src.utils import get_excel
 
 
 def hello(current_time):
@@ -34,7 +34,7 @@ top_list = []
 
 def generate_json(current_date):
     """Функция, возвращающая отфильтрованные по дате транзакции"""
-    for transaction in get_excel('dict'):
+    for transaction in get_excel("dict"):
         if (
             str(transaction["Дата платежа"])[2:10] == current_date[2:10]
             and str(transaction["Дата платежа"])[:2] <= current_date[:2]
@@ -85,4 +85,6 @@ def final_list(current_date):
     return transaction_for_print
 
 
-# print(*final_list('04.11.2021 23:50:17'), sep='\n')
+# print(final_list('04.11.2021 23:50:17'), sep='\n')
+# print(final_list('04.11.2021 23:50:17')[0]['top_transactions'])
+print(generate_json("01.11.2021 23:50:17"))
