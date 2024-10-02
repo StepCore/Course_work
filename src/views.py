@@ -1,12 +1,15 @@
 import datetime
 
 from user_settings_json import add_to_list, get_current_stock
-from utils import get_dataframe_excel
+from utils import get_excel
 
 
 def hello(current_time):
     """Функция приветствия, возвращающая соответствующее сообщение в зависимости от времени суток."""
-    current_time = datetime.datetime.strptime(current_time, "%d.%m.%Y %H:%M:%S")
+    try:
+        current_time = datetime.datetime.strptime(current_time, "%d.%m.%Y %H:%M:%S")
+    except ValueError:
+        raise ValueError("Некорректный формат времени")
     current_time = current_time.time()
     night_end = datetime.time(2, 59, 59)
     morning_start = datetime.time(5, 0, 0)
@@ -23,45 +26,63 @@ def hello(current_time):
         return "Добрый день!"
 
 
-# print(hello('18.12.2021 16:53:16'))
+current_transactions = []
+transaction_for_print = [{}]
+cards = []
+top_list = []
 
 
 def generate_json(current_date):
-    current_transactions = []
-    for transaction in get_dataframe_excel():
+    """Функция, возвращающая отфильтрованные по дате транзакции"""
+    for transaction in get_excel('dict'):
         if (
-            str(transaction["Дата платежа"])[2:] == current_date[2:]
+            str(transaction["Дата платежа"])[2:10] == current_date[2:10]
             and str(transaction["Дата платежа"])[:2] <= current_date[:2]
         ):
             current_transactions.append(transaction)
-    cards = []
-    top_transactions = []
-    filtered_transactions = [{"greeting": hello(current_date)}]
-    for transaction_2 in current_transactions:
+    return current_transactions
+
+
+def filtered_cards():
+    """Функция, возвращающая правильный список карт"""
+    for transaction in current_transactions:
         card = {
-            "last_digit": transaction_2["Номер карты"],
-            "total_spent": transaction_2["Сумма операции"],
-            "cashback": round(transaction_2["Сумма операции"] / 100, 2),
+            "last_digit": transaction["Номер карты"],
+            "total_spent": transaction["Сумма операции"],
+            "cashback": round(transaction["Сумма операции"] / 100, 2),
         }
         cards.append(card)
+    return cards
+
+
+def filtered_top():
+    """Функция, возвращающая топ 5 транзакций по платежам"""
+    sort_current_transactions = sorted(
+        current_transactions, reverse=True, key=lambda x: abs(x["Сумма платежа"])
+    )
+    for transaction in sort_current_transactions:
         top = {
-            "date": transaction_2["Дата платежа"],
-            "amount": transaction_2["Сумма платежа"],
-            "category": transaction_2["Категория"],
-            "description": transaction_2["Описание"],
+            "date": transaction["Дата платежа"],
+            "amount": abs(transaction["Сумма платежа"]),
+            "category": transaction["Категория"],
+            "description": transaction["Описание"],
         }
-        top_transactions.append(top)
-    filtered_transactions[0]["cards"] = cards
-    top_transactions.sort(key=lambda x: x["amount"])
-    filtered_transactions[0]["top_transactions"] = top_transactions
-    filtered_transactions[0]["currency_rates"] = [
-        {"currency": "USD", "rate": 92.8},
-        {"currency": "EUR", "rate": 103.49},
-    ]
-    filtered_transactions[0]["stock_prices"] = get_current_stock()
-    print(*current_transactions, sep="\n")
-    print()
-    return filtered_transactions
+        top_list.append(top)
+        if len(top_list) == 5:
+            break
+    return top_list
 
 
-# print(*generate_json('01.11.2021 5:50:17'), sep='\n')
+def final_list(current_date):
+    generate_json(current_date)
+    filtered_cards()
+    filtered_top()
+    transaction_for_print[0]["greeting"] = hello(current_date)
+    transaction_for_print[0]["cards"] = cards
+    transaction_for_print[0]["top_transactions"] = top_list
+    transaction_for_print[0]["currency_rates"] = [{}]
+    transaction_for_print[0]["stock_prices"] = [{}]
+    return transaction_for_print
+
+
+# print(*final_list('04.11.2021 23:50:17'), sep='\n')

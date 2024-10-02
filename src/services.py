@@ -1,9 +1,9 @@
-from views import get_dataframe_excel
+from views import get_excel
 
 
 def find_numbers(num):
     current_transactions = []
-    for transaction in get_dataframe_excel():
+    for transaction in get_excel('dict'):
         if num in transaction["Описание"]:
             current_transactions.append(transaction)
     return current_transactions
