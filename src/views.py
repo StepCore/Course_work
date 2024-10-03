@@ -85,6 +85,7 @@ def final_list(current_date):
     return transaction_for_print
 
 
-# print(final_list('04.11.2021 23:50:17'), sep='\n')
-# print(final_list('04.11.2021 23:50:17')[0]['top_transactions'])
-print(generate_json("01.11.2021 23:50:17"))
+# print(final_list('01.11.2021 23:50:17'), sep='\n')
+# print(final_list("01.11.2021 23:50:17")[0]["top_transactions"])
+# print(final_list('01.11.2021 23:50:17')[0]['cards'])
+# print(generate_json("08.11.2021 23:50:17"))

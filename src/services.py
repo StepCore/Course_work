@@ -1,4 +1,4 @@
-from views import get_excel
+from src.views import get_excel
 
 
 def find_numbers(num):
@@ -9,4 +9,4 @@ def find_numbers(num):
     return current_transactions
 
 
-# print(*find_numbers('98'), sep='\n')
+print(*find_numbers('985'), sep='\n')

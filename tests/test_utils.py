@@ -1,0 +1,11 @@
+import pytest
+
+from src.utils import get_excel
+import pandas as pd
+
+
+def test_get_excel(get_excel_0):
+    assert get_excel('dict')[360] == get_excel_0
+    assert get_excel('dataframe').equals(pd.read_excel("../data/operations.xlsx"))
+    with pytest.raises(ValueError):
+        assert get_excel('Invalid format') == ValueError
