@@ -1,5 +1,7 @@
 import datetime
 
+import numpy
+
 from user_settings_json import add_to_list, get_current_stock
 from src.utils import get_excel
 
@@ -85,7 +87,7 @@ def final_list(current_date):
     return transaction_for_print
 
 
-# print(final_list('01.11.2021 23:50:17'), sep='\n')
+print(final_list('01.11.2021 23:50:17'), sep='\n')
 # print(final_list("01.11.2021 23:50:17")[0]["top_transactions"])
 # print(final_list('01.11.2021 23:50:17')[0]['cards'])
 # print(generate_json("08.11.2021 23:50:17"))

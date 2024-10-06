@@ -5,7 +5,7 @@ from typing import Optional
 import pandas as pd
 from dateutil.relativedelta import relativedelta
 
-from utils import get_excel
+from src.utils import get_excel
 
 
 def report_decorator(filename=None):
@@ -60,4 +60,4 @@ def spending_by_category(
     return current_transactions
 
 
-# print(*spending_by_category(get_excel('dataframe'), "Фастфуд"), sep="\n")
+# print(spending_by_category(get_excel('dataframe'), "Фастфуд", '17.01.2018'))
