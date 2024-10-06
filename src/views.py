@@ -1,9 +1,7 @@
 import datetime
 
-import numpy
-
-from user_settings_json import add_to_list, get_current_stock
 from src.utils import get_excel
+from user_settings_json import add_to_list, get_current_stock, settings
 
 
 def hello(current_time):
@@ -82,12 +80,9 @@ def final_list(current_date):
     transaction_for_print[0]["greeting"] = hello(current_date)
     transaction_for_print[0]["cards"] = cards
     transaction_for_print[0]["top_transactions"] = top_list
-    transaction_for_print[0]["currency_rates"] = [{}]
-    transaction_for_print[0]["stock_prices"] = [{}]
+    transaction_for_print[0]["currency_rates"] = add_to_list()
+    transaction_for_print[0]["stock_prices"] = get_current_stock(settings)
     return transaction_for_print
 
 
-print(final_list('01.11.2021 23:50:17'), sep='\n')
-# print(final_list("01.11.2021 23:50:17")[0]["top_transactions"])
-# print(final_list('01.11.2021 23:50:17')[0]['cards'])
-# print(generate_json("08.11.2021 23:50:17"))
+# print(final_list("01.11.2021 23:50:17"), sep="\n")

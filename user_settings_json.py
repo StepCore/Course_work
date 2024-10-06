@@ -1,4 +1,14 @@
+import json
+import os
+
 import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+API_KEY_PRICE = json.loads(os.getenv("PRICE"))
+API_KEY_STOCK = os.getenv("STOCK")
+
 
 settings = {
     "user_currencies": ["USD", "EUR"],
@@ -11,10 +21,7 @@ currency_stock = []
 def get_current_price(currency):
     url = f"https://api.apilayer.com/exchangerates_data/convert?to=RUB&from={currency}&amount=1"
 
-    payload = {}
-    headers = {"apikey": "jqhlspps8Cks9V3f4XwGI5qZrXx5gcpj"}
-
-    response = requests.request("GET", url, headers=headers, data=payload)
+    response = requests.request("GET", url, headers=API_KEY_PRICE)
 
     user_currencies = response.json()["query"]["from"]
     price = response.json()["info"]["rate"]
@@ -35,11 +42,10 @@ def add_to_list():
 # print(add_to_list())
 
 
-def get_current_stock():
-    url = f"https://financialmodelingprep.com/api/v3/stock/list?apikey=PltnhzgjML0noZote0Z2nK8TZYU9t3cw"
-    payload = {}
+def get_current_stock(settings):
+    url = f"https://financialmodelingprep.com/api/v3/stock/list?apikey={API_KEY_STOCK}"
 
-    response = requests.request("GET", url, data=payload)
+    response = requests.request("GET", url)
 
     result = response.json()
 

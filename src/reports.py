@@ -60,4 +60,4 @@ def spending_by_category(
     return current_transactions
 
 
-# print(spending_by_category(get_excel('dataframe'), "Фастфуд", '17.01.2018'))
+# print(*spending_by_category(get_excel('dataframe'), "Фастфуд", '17.01.2018'), sep='\n')

@@ -1,5 +1,3 @@
-import numpy
-
 from src.views import get_excel
 
 
