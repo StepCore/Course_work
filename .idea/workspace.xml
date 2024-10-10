@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65da39d2-4a82-4619-ac7b-65fb0fbbd7a0" name="Changes" comment="супер сырой проект">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_10_2024_20_36__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_10_2024_20_36__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="65da39d2-4a82-4619-ac7b-65fb0fbbd7a0" name="Changes" comment="commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +16,9 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="Git.Rebase.Settings">
+    <option name="NEW_BASE" value="final_branch" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -43,37 +43,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python tests.Python tests for test_reports.test_record_file.executor": "Run",
-    "Python tests.Python tests for test_reports.test_spending_by_category.executor": "Run",
-    "Python tests.Python tests for test_services.test_find_numbers.executor": "Run",
-    "Python tests.Python tests for test_utils.test_get_excel.executor": "Run",
-    "Python tests.Python tests for test_views.test_cards.executor": "Run",
-    "Python tests.Python tests for test_views.test_generate_json.executor": "Run",
-    "Python tests.Python tests for test_views.test_get_current_price.executor": "Run",
-    "Python tests.Python tests for test_views.test_get_current_stock.executor": "Run",
-    "Python tests.Python tests for test_views.test_greeting.executor": "Run",
-    "Python tests.Python tests for test_views.test_top_transactions.executor": "Run",
-    "Python tests.Python tests in test_reports.py.executor": "Run",
-    "Python tests.Python tests in test_services.py.executor": "Run",
-    "Python tests.Python tests in test_utils.py.executor": "Run",
-    "Python tests.Python tests in test_views.py.executor": "Run",
-    "Python.reports.executor": "Run",
-    "Python.services.executor": "Run",
-    "Python.test_views.executor": "Run",
-    "Python.user_settings_json.executor": "Run",
-    "Python.utils.executor": "Run",
-    "Python.views.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "final__branch",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/User/PycharmProjects/OOP",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests for test_reports.test_record_file.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_reports.test_spending_by_category.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_services.test_find_numbers.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_utils.test_get_excel.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_views.test_cards.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_views.test_generate_json.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_views.test_get_current_price.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_views.test_get_current_stock.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_views.test_greeting.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_views.test_top_transactions.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_reports.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_services.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_utils.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_views.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python.reports.executor&quot;: &quot;Run&quot;,
+    &quot;Python.services.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_views.executor&quot;: &quot;Run&quot;,
+    &quot;Python.user_settings_json.executor&quot;: &quot;Run&quot;,
+    &quot;Python.utils.executor&quot;: &quot;Run&quot;,
+    &quot;Python.views.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;final__branch&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/PycharmProjects/OOP&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PythonContentEntriesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\PycharmProjects\final_coursework\data" />
@@ -280,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728242517247</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="commit">
+      <option name="closed" value="true" />
+      <created>1728591121068</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1728591121068</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -308,6 +316,7 @@
     <MESSAGE value="trying something tests" />
     <MESSAGE value="fixing something tests" />
     <MESSAGE value="супер сырой проект" />
-    <option name="LAST_COMMIT_MESSAGE" value="супер сырой проект" />
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
   </component>
 </project>
