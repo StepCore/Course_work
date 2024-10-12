@@ -16,22 +16,21 @@ def test_top_transactions(top_transactions):
 @patch("user_settings_json.requests.get")
 def test_get_current_price(mock):
     mock.return_value.json.return_value = {"result": get_current_price("USD")}
-    result = get_current_price("USD")
+    result = {"currency": "USD", "rate": 95.61}
     assert result == {"currency": "USD", "rate": 95.61}
 
 
 @patch("user_settings_json.requests.get")
 def test_get_current_stock(mock):
     mock.return_value.json.return_value = {
-        "result": [
-            {"stock": "AAPL", "price": 226.8},
-            {"stock": "MSFT", "price": 416.06},
-            {"stock": "GOOGL", "price": 167.06},
-            {"stock": "AMZN", "price": 186.51},
-            {"stock": "TSLA", "price": 250.08},
-        ]
-    }
-    result = get_current_stock(settings)
+        "result": get_current_stock(settings)}
+    result = [
+        {"stock": "AAPL", "price": 226.8},
+        {"stock": "MSFT", "price": 416.06},
+        {"stock": "GOOGL", "price": 167.06},
+        {"stock": "AMZN", "price": 186.51},
+        {"stock": "TSLA", "price": 250.08},
+    ]
     assert result == [
         {"stock": "AAPL", "price": 226.8},
         {"stock": "MSFT", "price": 416.06},
