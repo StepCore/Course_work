@@ -1,6 +1,6 @@
 import datetime
 
-from src.utils import get_excel
+from src.utils import get_excel, generate_json, filtered_cards, filtered_top, cards, top_list
 from user_settings_json import add_to_list, get_current_stock, settings
 
 
@@ -26,54 +26,11 @@ def hello(current_time):
         return "Добрый день!"
 
 
-current_transactions = []
 transaction_for_print = [{}]
-cards = []
-top_list = []
-
-
-def generate_json(current_date):
-    """Функция, возвращающая отфильтрованные по дате транзакции"""
-    for transaction in get_excel("dict"):
-        if (
-            str(transaction["Дата платежа"])[2:10] == current_date[2:10]
-            and str(transaction["Дата платежа"])[:2] <= current_date[:2]
-        ):
-            current_transactions.append(transaction)
-    return current_transactions
-
-
-def filtered_cards():
-    """Функция, возвращающая правильный список карт"""
-    for transaction in current_transactions:
-        card = {
-            "last_digit": transaction["Номер карты"],
-            "total_spent": transaction["Сумма операции"],
-            "cashback": round(transaction["Сумма операции"] / 100, 2),
-        }
-        cards.append(card)
-    return cards
-
-
-def filtered_top():
-    """Функция, возвращающая топ 5 транзакций по платежам"""
-    sort_current_transactions = sorted(
-        current_transactions, reverse=True, key=lambda x: abs(x["Сумма платежа"])
-    )
-    for transaction in sort_current_transactions:
-        top = {
-            "date": transaction["Дата платежа"],
-            "amount": abs(transaction["Сумма платежа"]),
-            "category": transaction["Категория"],
-            "description": transaction["Описание"],
-        }
-        top_list.append(top)
-        if len(top_list) == 5:
-            break
-    return top_list
 
 
 def final_list(current_date):
+    """Функция, формирующая конечный список из готовых данных"""
     generate_json(current_date)
     filtered_cards()
     filtered_top()
