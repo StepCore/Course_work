@@ -1,11 +1,24 @@
 import numpy
 import pandas as pd
 
+import logging
+
+logger = logging.getLogger(__name__)
+file_handler = logging.FileHandler("../logs/utils.log", "a")
+file_formatter = logging.Formatter(
+    "%(asctime)s %(levelname)s: %(filename)s %(funcName)s: %(message)s"
+)
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
+logger.setLevel(logging.DEBUG)
+
 
 def get_excel(formatting):
+    """Возвращает словарь или датафрейм из файла Excel"""
     current_transaction = []
     get_excel_file = pd.read_excel("../data/operations.xlsx")
     if formatting == "dataframe":
+        logger.debug('Convert to dataframe successfully')
         return get_excel_file
     elif formatting == "dict":
         for transaction in get_excel_file.to_dict(orient="records"):
@@ -16,12 +29,14 @@ def get_excel(formatting):
                 for key, value in transaction.items()
             }
             current_transaction.append(transaction)
+        logger.debug('Convert to dict successfully')
         return current_transaction
     else:
+        logger.error('Incorrect data')
         raise ValueError("Invalid format specified. Use 'dataframe' or 'dict'.")
 
 
-# print(get_excel('dict'))
+# print(get_excel('dataframe'))
 
 current_transactions = []
 cards = []
@@ -36,6 +51,7 @@ def generate_json(current_date):
             and str(transaction["Дата платежа"])[:2] <= current_date[:2]
         ):
             current_transactions.append(transaction)
+    logger.debug('Correct data payment')
     return current_transactions
 
 
@@ -48,6 +64,7 @@ def filtered_cards():
             "cashback": round(transaction["Сумма операции"] / 100, 2),
         }
         cards.append(card)
+    logger.debug('Correct filtered cards')
     return cards
 
 
@@ -66,4 +83,5 @@ def filtered_top():
         top_list.append(top)
         if len(top_list) == 5:
             break
+    logger.debug('Correct top 5 payment')
     return top_list
