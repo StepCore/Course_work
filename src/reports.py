@@ -8,6 +8,18 @@ from dateutil.relativedelta import relativedelta
 from src.utils import get_excel
 
 
+import logging
+
+logger = logging.getLogger(__name__)
+file_handler = logging.FileHandler("../logs/utils.log", "a")
+file_formatter = logging.Formatter(
+    "%(asctime)s %(levelname)s: %(filename)s %(funcName)s: %(message)s"
+)
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
+logger.setLevel(logging.DEBUG)
+
+
 def report_decorator(filename=None):
     def decorator(func):
         @functools.wraps(func)
@@ -26,6 +38,7 @@ def date_three_months_ago(date):
     date_format = "%d.%m.%Y"
     date = datetime.strptime(date, date_format)
     new_date = date - relativedelta(months=3)
+    logger.debug('Correct returned date three months ago')
     return new_date.strftime(date_format)
 
 
@@ -56,8 +69,8 @@ def spending_by_category(
             and start_date <= transaction_date <= end_date
         ):
             current_transactions.append(transaction.to_dict())
-
+    logger.debug(f'Correct returned spending by category {category}')
     return current_transactions
 
 
-# print(*spending_by_category(get_excel('dataframe'), "Фастфуд", '17.01.2018'), sep='\n')
+print(*spending_by_category(get_excel('dataframe'), "Каршеринг", '17.12.2021'), sep='\n')
