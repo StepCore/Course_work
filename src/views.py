@@ -42,4 +42,4 @@ def final_list(current_date):
     return transaction_for_print
 
 
-print(final_list("01.11.2021 23:50:17"), sep="\n")
+# print(final_list("01.11.2021 23:50:17"), sep="\n")
