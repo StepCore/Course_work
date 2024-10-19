@@ -34,15 +34,8 @@ def report_decorator(filename=None):
     return decorator
 
 
-def date_three_months_ago(date):
-    date_format = "%d.%m.%Y"
-    date = datetime.strptime(date, date_format)
-    new_date = date - relativedelta(months=3)
-    logger.debug('Correct returned date three months ago')
-    return new_date.strftime(date_format)
-
-
 def date_now():
+    """Функция, возвращающая текущую дату"""
     now = datetime.now()
     formatted_date = now.strftime("%d.%m.2021")
     return formatted_date
@@ -52,6 +45,7 @@ def date_now():
 def spending_by_category(
     transactions: pd.DataFrame, category: str, date: Optional[str] = date_now()
 ):
+    """Функция, возвращающая список транзакций по заданной категории за 3 месяца"""
     if date is None:
         return []
 
@@ -73,4 +67,4 @@ def spending_by_category(
     return current_transactions
 
 
-print(*spending_by_category(get_excel('dataframe'), "Каршеринг", '17.12.2021'), sep='\n')
+# print(*spending_by_category(get_excel('dataframe'), "Каршеринг", '17.12.2021'), sep='\n')
