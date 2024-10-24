@@ -22,8 +22,7 @@ def test_get_current_price(mock):
 
 @patch("user_settings_json.requests.get")
 def test_get_current_stock(mock):
-    mock.return_value.json.return_value = {
-        "result": get_current_stock(settings)}
+    mock.return_value.json.return_value = {"result": get_current_stock(settings)}
     result = [
         {"stock": "AAPL", "price": 226.8},
         {"stock": "MSFT", "price": 416.06},

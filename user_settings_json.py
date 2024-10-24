@@ -52,9 +52,7 @@ def get_current_stock(settings):
     for stock in result:
         for my_stock in settings["user_stocks"]:
             if stock["symbol"] == my_stock:
-                currency_stock.append(
-                    {"stock": stock["symbol"], "price": stock["price"]}
-                )
+                currency_stock.append({"stock": stock["symbol"], "price": stock["price"]})
     return currency_stock
 
 
