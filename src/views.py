@@ -1,6 +1,6 @@
 import datetime
 
-from src.utils import get_excel, generate_json, filtered_cards, filtered_top, cards, top_list
+from src.utils import cards, filtered_cards, filtered_top, generate_json, get_excel, top_list
 from user_settings_json import add_to_list, get_current_stock, settings
 
 
